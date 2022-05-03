@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+      <a class="navbar-brand" href="#">Wikinimous</a>
+
+  </div>
+    <a class="navbar-brand" href="#">New article</a>
+
+  </div>
+</nav>
+
+
+<ul>
+<%@articles.each do |article|%>
+<li><%= link_to article.title, article_path(article) %> <%= link_to " Destroy", article_path(article), method: :delete, data: { confirm: "Are you sure?"} %> </li>
+<%end%>
+</ul>
+
+<%= link_to "Add a new article", new_article_path(@articles) %>
